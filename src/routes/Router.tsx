@@ -12,8 +12,8 @@ export const router = createBrowserRouter([
                 element: <>1</>,
             },
             {
-                path: '/menu',
-                element: <>3</>,
+                path: '/vegan-cuisine',
+                element: <>Vegan cuisine</>,
             },
             {
                 path: '/favorites',

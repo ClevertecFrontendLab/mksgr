@@ -13,6 +13,7 @@ import {
     useBreakpointValue,
     VStack,
 } from '@chakra-ui/react';
+import { Link } from 'react-router';
 
 import ProfileNotification from '../ProfileNotification/ProfileNotification';
 
@@ -23,9 +24,11 @@ const Header = () => {
     });
 
     return (
-        <Box bg='lime.50' px={4} py={4} boxShadow='sm'>
+        <Box bg='lime.50' px={4} py={4}>
             <Flex align='center'>
-                <Image src={logoSrc} alt='Logo icon' />
+                <Link to='/'>
+                    <Image src={logoSrc} alt='Logo icon' />
+                </Link>
 
                 <Show above='xl'>
                     <Text fontSize='md' ml={32}>
@@ -36,7 +39,12 @@ const Header = () => {
                 <Spacer />
 
                 <Hide above='xl'>
-                    <ProfileNotification direction='row' spacing={4} />
+                    <ProfileNotification
+                        imageHeightInPX='12px'
+                        fontSizeInPX='12px'
+                        direction='row'
+                        spacing={4}
+                    />
                 </Hide>
                 <Show above='xl'>
                     <HStack spacing={2} align='start' mr={20}>
@@ -52,7 +60,14 @@ const Header = () => {
                     </HStack>
                 </Show>
                 <Hide above='xl'>
-                    <IconButton icon={<HamburgerIcon />} variant='ghost' aria-label='Меню' ml={4} />
+                    <IconButton
+                        icon={<HamburgerIcon />}
+                        variant='ghost'
+                        aria-label='Меню'
+                        ml={4}
+                        height='32px'
+                        width='32px'
+                    />
                 </Hide>
             </Flex>
         </Box>

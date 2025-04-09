@@ -4,6 +4,7 @@ const theme = extendTheme({
     colors: {
         lime: {
             50: '#FFFFD3',
+            100: '#EAFFC7',
             600: '#2DB100',
         },
     },
