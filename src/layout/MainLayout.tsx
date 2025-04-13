@@ -9,7 +9,7 @@ const MainLayout = () => (
     <Grid
         templateRows='auto 1fr'
         templateColumns={{ base: '1fr', xl: '256px 1fr 200px' }}
-        minH='100vh'
+        h='100vh'
     >
         <GridItem as='header' colSpan={3}>
             <Header />
@@ -19,7 +19,11 @@ const MainLayout = () => (
             <Sidebar />
         </GridItem>
 
-        <GridItem as='main' bg='white' p={6}>
+        <GridItem
+            as='main'
+            p={{ base: '16px', md: '16px 20px', xl: '32px 80px 0 24px' }}
+            overflowY='auto'
+        >
             <Outlet />
         </GridItem>
 

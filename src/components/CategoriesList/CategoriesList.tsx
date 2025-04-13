@@ -69,7 +69,16 @@ const CategoriesList = ({ data }: CategoriesListProps) => {
                                 flex='1'
                                 textAlign='left'
                             >
-                                <Link to='/vegan-cuisine'>{item.name}</Link>
+                                <Link
+                                    data-test-id={
+                                        item.name === 'Веганская кухня'
+                                            ? 'vegan-cuisine'
+                                            : undefined
+                                    }
+                                    to='/vegan-cuisine'
+                                >
+                                    {item.name}
+                                </Link>
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>

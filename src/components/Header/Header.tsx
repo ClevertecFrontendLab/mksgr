@@ -24,7 +24,7 @@ const Header = () => {
     });
 
     return (
-        <Box bg='lime.50' px={4} py={4}>
+        <Box bg='lime.50' px={4} py={4} data-test-id='header'>
             <Flex align='center'>
                 <Link to='/'>
                     <Image src={logoSrc} alt='Logo icon' />
