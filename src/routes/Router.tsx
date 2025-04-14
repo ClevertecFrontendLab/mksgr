@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router';
 import MainLayout from '~/layout/MainLayout';
 import FavoritesPage from '~/pages/FavoritesPage/FavoritesPage';
 import MainPage from '~/pages/MainPage/MainPage';
+import VeganCuisinePage from '~/pages/VeganCuisinePage/VeganCuisinePage';
 
 export const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/vegan-cuisine',
-                element: <>Vegan cuisine</>,
+                element: <VeganCuisinePage />,
             },
             {
                 path: '/favorites',

@@ -14,8 +14,8 @@ import {
 } from '@chakra-ui/react';
 
 const Filters = () => (
-    <Flex direction='column' gap={4} justify='center' mb='32px'>
-        <HStack justify='center' gap={3}>
+    <Flex direction='column' gap={4} justify='center' mb='32px' width='100%'>
+        <HStack justify='center' gap={3} width='100%'>
             <Button
                 flexShrink={0}
                 aria-label='Меню'
@@ -34,7 +34,7 @@ const Filters = () => (
                     h={{ base: '14px', xl: '24px' }}
                 ></Image>
             </Button>
-            <InputGroup maxW='458px'>
+            <InputGroup maxW='458px' w='100%' flex={1}>
                 <Input
                     placeholder='Название или ингредиент...'
                     _placeholder={{ color: 'lime.800' }}

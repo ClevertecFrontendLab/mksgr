@@ -44,7 +44,7 @@ const DishCard = ({ card }: { card: IDishCard }) => (
             src={card.image}
             alt='Dish image'
         />
-        <Stack p={{ base: '8px 8px 4px 8px', xl: '20px 24px' }} gap='24px'>
+        <Stack p={{ base: '8px 8px 4px 8px', xl: '20px 24px' }} gap='24px' flex={1}>
             <CardBody p={0} maxW='100%'>
                 <Flex justify='space-between' pb={{ base: '0', xl: '24px' }}>
                     <Badge
@@ -61,7 +61,9 @@ const DishCard = ({ card }: { card: IDishCard }) => (
 
                     <HStack gap='8px'>
                         {card.tags &&
-                            card.tags.map((t) => <PostButton type={t.type} count={t.count} />)}
+                            card.tags.map((t, i) => (
+                                <PostButton key={i} type={t.type} count={t.count} />
+                            ))}
                     </HStack>
                 </Flex>
 

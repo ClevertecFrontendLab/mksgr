@@ -19,8 +19,6 @@ const RelevantKitchen = () => (
     <Flex direction='column' gap={{ base: '16px', xl: '24px' }} pt='24px'>
         <Grid
             templateColumns={{ base: '1fr', xl: 'auto 1fr', '2xl': '704px 1fr' }}
-            // direction={{ base: 'column', xl: 'row' }}
-            // align={{ base: 'left', xl: 'center' }}
             gap={{ base: '12px', xl: '28px', '2xl': '0' }}
         >
             <Heading

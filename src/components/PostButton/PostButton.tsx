@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { PostButtonProps } from './PostButton.types';
 
 const PostButton = ({ count, type }: PostButtonProps) => {
-    const [iconSrc, setIconSrc] = useState<string>('');
+    const [iconSrc, setIconSrc] = useState<string | undefined>(undefined);
 
     const toggleIcon = (type: string) => {
         switch (type) {
