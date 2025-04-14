@@ -1,0 +1,69 @@
+.activeCategory {
+    background-color: #eaffc7;
+    font-weight: bold;
+}
+
+.subCategory {
+    font-weight: 500;
+    line-height: 150%;
+    padding: 6px 8px 6px 52px;
+    font-size: 16px;
+    position: relative;
+}
+
+.subCategory:before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 24px;
+    background: #c4ff61;
+    transition: all 0.2s ease-in-out;
+}
+
+.subCategory.active {
+    font-weight: bold;
+}
+
+.subCategory:hover:before,
+.subCategory.active:before {
+    left: 32px;
+    width: 8px;
+    height: 28px;
+}
+
+.accordion {
+    overflow-y: auto;
+    padding: 10px 16px 10px 10px;
+    margin: 0;
+}
+
+.accordionScroll {
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 0 0 12px 12px;
+    padding: 10px 4px 10px 10px;
+    margin-right: 4px;
+}
+
+.accordion::-webkit-scrollbar {
+    width: 10px; /* ширина скролла */
+    margin-right: 4px;
+}
+
+.accordion::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.04); /* фон дорожки */
+    border-radius: 8px;
+}
+
+.accordion::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.16); /* цвет полоски скролла */
+    border-radius: 8px;
+}
+
+.accordion::-webkit-scrollbar-thumb:hover {
+    background: #b3a1a0; /* цвет при ховере */
+}
