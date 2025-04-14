@@ -1,4 +1,5 @@
 import {
+    Box,
     Button,
     Card,
     CardBody,
@@ -14,39 +15,53 @@ import {
 import Badge from '../Badge/Badge';
 import PostButton from '../PostButton/PostButton';
 import styles from './DishCard.module.css';
+import { IDishCard } from './DishCard.types';
 
-const DishCard = () => (
+const DishCard = ({ card }: { card: IDishCard }) => (
     <Card
         display='flex'
         direction='row'
         overflow='hidden'
         className={styles['dishCard']}
         variant='outline'
+        position='relative'
     >
+        {card.recommendation && (
+            <Badge
+                display={{ base: 'none', xl: 'flex' }}
+                position='absolute'
+                bottom='20px'
+                left='24px'
+                bg='lime.150'
+                image={card.recommendation.userIcon}
+            >
+                {card.recommendation.title}
+            </Badge>
+        )}
         <Image
             objectFit='cover'
             maxW={{ base: '158px', xl: '346px' }}
-            src='/src/assets/mainPage/dish_1.png'
+            src={card.image}
             alt='Dish image'
         />
-        <Stack p={{ base: '8px 8px 4px 8px', xl: '20px 24px' }} gap='24px' flex={1}>
-            <CardBody p={0}>
+        <Stack p={{ base: '8px 8px 4px 8px', xl: '20px 24px' }} gap='24px'>
+            <CardBody p={0} maxW='100%'>
                 <Flex justify='space-between' pb={{ base: '0', xl: '24px' }}>
                     <Badge
                         bg='lime.50'
-                        image='/src/assets/sidebar/categories/second-dishes-icon.svg'
+                        image={card.category.icon}
                         sx={{
                             position: { base: 'absolute', xl: 'relative' },
                             top: { base: '8px', xl: '0' },
                             left: { base: '8px', xl: '0' },
                         }}
                     >
-                        Вторые блюда
+                        {card.category.title}
                     </Badge>
 
                     <HStack gap='8px'>
-                        <PostButton type='bookmarks' count={85} />
-                        <PostButton type='likes' count={152} />
+                        {card.tags &&
+                            card.tags.map((t) => <PostButton type={t.type} count={t.count} />)}
                     </HStack>
                 </Flex>
 
@@ -54,16 +69,16 @@ const DishCard = () => (
                     fontSize={{ base: '16px', xl: '20px' }}
                     fontWeight='medium'
                     lineHeight='24px'
-                    pb='8px'
                     noOfLines={{ base: 2, xl: 1 }}
                 >
-                    Пряная ветчина по итальянски
+                    {card.title}
                 </Heading>
 
-                <Text noOfLines={3} fontSize='14px' display={{ base: 'none', xl: 'block' }}>
-                    Как раз после праздников, когда мясные продукты еще остались, но никто их уже не
-                    хочет, время варить солянку.
-                </Text>
+                <Box display={{ base: 'none', xl: 'block' }} mt='8px'>
+                    <Text noOfLines={3} maxW='100%' fontSize='14px'>
+                        {card.text}
+                    </Text>
+                </Box>
             </CardBody>
 
             <CardFooter justify='right' p={0}>

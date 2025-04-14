@@ -1,5 +1,6 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Box, Button, Flex, Heading, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Button, Divider, Flex, Heading, useBreakpointValue } from '@chakra-ui/react';
+import { Link } from 'react-router';
 
 import Blog from '~/components/Blog/Blog';
 import Favorites from '~/components/Favorites/Favorites';
@@ -139,20 +140,22 @@ const MainPage = () => {
                     >
                         Самое сочное
                     </Heading>
-                    <Button
-                        rightIcon={<ArrowForwardIcon />}
-                        display={{ base: 'none', xl: 'block' }}
-                        bg='lime.400'
-                        fontSize={{ base: '16px', '2xl': '18px' }}
-                        py={{ base: '8px', '2xl': '10px' }}
-                        px={{ base: '16px', '2xl': '24px' }}
-                        data-test-id={useBreakpointValue({
-                            base: 'juiciest-link-mobile',
-                            xl: 'juiciest-link',
-                        })}
-                    >
-                        Вся подборка
-                    </Button>
+                    <Link to='/favorites'>
+                        <Button
+                            rightIcon={<ArrowForwardIcon />}
+                            display={{ base: 'none', xl: 'block' }}
+                            bg='lime.400'
+                            fontSize={{ base: '16px', '2xl': '18px' }}
+                            py={{ base: '8px', '2xl': '10px' }}
+                            px={{ base: '16px', '2xl': '24px' }}
+                            data-test-id={useBreakpointValue({
+                                base: 'juiciest-link-mobile',
+                                xl: 'juiciest-link',
+                            })}
+                        >
+                            Вся подборка
+                        </Button>
+                    </Link>
                 </Flex>
                 <Favorites />
             </Flex>
@@ -186,6 +189,7 @@ const MainPage = () => {
                 </Flex>
                 <Blog />
             </Flex>
+            <Divider />
             <RelevantKitchen />
         </Box>
     );
