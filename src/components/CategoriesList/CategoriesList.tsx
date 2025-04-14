@@ -60,7 +60,8 @@ const CategoriesList = ({ data }: CategoriesListProps) => {
                             onClick={() => toggleCategory(item)}
                             className={`${activeCategory === item.name ? styles['activeCategory'] : ''}`}
                         >
-                            <img src={item.iconSrc} alt='' />
+                            <img src={item.iconSrc} alt='category icon' />
+
                             <Box
                                 fontWeight='medium'
                                 ml={3}
@@ -70,29 +71,31 @@ const CategoriesList = ({ data }: CategoriesListProps) => {
                                 textAlign='left'
                             >
                                 <Link
+                                    to={item.link}
                                     data-test-id={
                                         item.name === 'Веганская кухня'
                                             ? 'vegan-cuisine'
                                             : undefined
                                     }
-                                    to='/vegan-cuisine'
                                 >
                                     {item.name}
                                 </Link>
                             </Box>
+
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
                     <AccordionPanel p={0}>
                         <List>
                             {item.subCategories.map((i, index) => (
-                                <ListItem
-                                    onClick={() => setActiveSubCategory(i)}
-                                    className={`${styles['subCategory']} ${activeSubCategory === i ? styles['active'] : ''}`}
-                                    key={index}
-                                >
-                                    <Link to='/vegan-cuisine'>{i}</Link>
-                                </ListItem>
+                                <Link to={i.link} key={index}>
+                                    <ListItem
+                                        onClick={() => setActiveSubCategory(i.name)}
+                                        className={`${styles['subCategory']} ${activeSubCategory === i.name ? styles['active'] : ''}`}
+                                    >
+                                        {i.name}
+                                    </ListItem>
+                                </Link>
                             ))}
                         </List>
                     </AccordionPanel>

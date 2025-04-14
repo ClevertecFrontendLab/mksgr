@@ -1,6 +1,6 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Box, Button, Divider, Flex, Heading, useBreakpointValue } from '@chakra-ui/react';
-import { Link } from 'react-router';
+import { Box, Button, chakra, Divider, Flex, Heading } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router';
 
 import Blog from '~/components/Blog/Blog';
 import Favorites from '~/components/Favorites/Favorites';
@@ -104,6 +104,8 @@ const MainPage = () => {
         },
     ];
 
+    const ChakraLink = chakra(RouterLink);
+
     return (
         <Box as='section'>
             <Flex direction='column' gap={{ base: '16px', xl: '32px' }}>
@@ -140,22 +142,21 @@ const MainPage = () => {
                     >
                         Самое сочное
                     </Heading>
-                    <Link to='/favorites'>
+                    <ChakraLink
+                        to='/favorites'
+                        data-test-id='juiciest-link'
+                        display={{ base: 'none', xl: 'block' }}
+                    >
                         <Button
                             rightIcon={<ArrowForwardIcon />}
-                            display={{ base: 'none', xl: 'block' }}
                             bg='lime.400'
                             fontSize={{ base: '16px', '2xl': '18px' }}
                             py={{ base: '8px', '2xl': '10px' }}
                             px={{ base: '16px', '2xl': '24px' }}
-                            data-test-id={useBreakpointValue({
-                                base: 'juiciest-link-mobile',
-                                xl: 'juiciest-link',
-                            })}
                         >
                             Вся подборка
                         </Button>
-                    </Link>
+                    </ChakraLink>
                 </Flex>
                 <Favorites />
             </Flex>

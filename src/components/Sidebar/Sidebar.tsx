@@ -1,10 +1,12 @@
 import { Box, Button, Image, Text, VStack } from '@chakra-ui/react';
 
+import { CATEGORIES } from '~/Data/Data';
+
 import CategoriesList from '../CategoriesList/CategoriesList';
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
-    const CATEGORIES = [
+    const CATEGORIES_OLD = [
         {
             id: 1,
             name: 'Салаты',
@@ -84,11 +86,30 @@ const Sidebar = () => {
         {
             id: 7,
             name: 'Веганская кухня',
+            link: '/vegan',
             iconSrc: '/src/assets/sidebar/categories/vegan-icon.svg',
             subCategories: [
-                'Закуски',
-                'Первые блюда',
-                'Вторые блюда',
+                {
+                    id: 1,
+                    name: 'Закуски',
+                    link: '/vegan/apetizers',
+                },
+                {
+                    id: 2,
+                    name: 'Первые блюда',
+                    link: '/vegan/first-dishes',
+                },
+                {
+                    id: 3,
+                    name: 'Вторые блюда',
+                    link: '/vegan/second-dishes',
+                },
+                {
+                    id: 3,
+                    name: 'Вторые блюда',
+                    link: '/vegan/second-dishes',
+                },
+
                 'Гарниры',
                 'Десерты',
                 'Выпечка',
@@ -195,6 +216,7 @@ const Sidebar = () => {
             ],
         },
     ];
+    console.log(CATEGORIES_OLD);
 
     return (
         <Box className={styles['sidebar']}>

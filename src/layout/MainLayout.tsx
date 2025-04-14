@@ -7,12 +7,8 @@ import NotificationSidebar from '~/components/NotificationSidebar/NotificationSi
 import Sidebar from '~/components/Sidebar/Sidebar';
 
 const MainLayout = () => (
-    <Grid
-        templateRows='auto 1fr auto'
-        templateColumns={{ base: '1fr', xl: '256px 1fr 200px' }}
-        h='100vh'
-    >
-        <GridItem as='header' colSpan={3} position='fixed' top='0' right='0' left='0' zIndex={1000}>
+    <Grid templateColumns={{ base: '1fr', xl: '256px 1fr 200px' }} h='100vh'>
+        <GridItem as='header' position='fixed' top='0' right='0' left='0' zIndex={1000}>
             <Header />
         </GridItem>
 
@@ -37,8 +33,8 @@ const MainLayout = () => (
             pt='96px'
             pb={{ base: '95px', xl: '0' }}
             px={{ base: '16px', md: '20px', xl: '24px' }}
-            ml={{ xl: '256px' }}
-            mr={{ xl: '200px' }}
+            ml={{ base: 0, xl: '256px' }}
+            mr={{ base: 0, xl: '200px' }}
         >
             <Outlet />
         </GridItem>
